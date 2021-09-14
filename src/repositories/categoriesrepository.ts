@@ -1,38 +1,38 @@
 import { Category } from "../model";
 
 interface ICreateCategoryDTO {
-    name: string;
-    description: string;
+  name: string;
+  description: string;
 }
 
 class CategoriesRespository {
-    private categories: Category[];
+  private categories: Category[];
 
-    constructor() {
-        this.categories = [];
-    }
+  constructor() {
+    this.categories = [];
+  }
 
-    create({ name, description }: ICreateCategoryDTO): void {
-        const category = new Category();
+  create({ name, description }: ICreateCategoryDTO): void {
+    const category = new Category();
 
-        Object.assign( category, {
-            name,
-            description,
-            created_at: new Date()
-        });
-    
-        this.categories.push(category);
-    }
+    Object.assign(category, {
+      name,
+      description,
+      created_at: new Date(),
+    });
 
-    list(): Category[] {
-        return this.categories;
-    }
+    this.categories.push(category);
+  }
 
-    findByName(name: string): Category {
-        const category = this.categories.find(category => category.name === name);
+  list(): Category[] {
+    return this.categories;
+  }
 
-        return category;
-    }
+  findByName(name: string): Category {
+    const category = this.categories.find((category) => category.name === name);
+
+    return category;
+  }
 }
 
 export { CategoriesRespository };
