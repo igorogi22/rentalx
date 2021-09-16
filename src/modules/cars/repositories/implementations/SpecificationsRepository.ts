@@ -38,6 +38,10 @@ class SpecificationsRepository implements ISpecificationsRepository {
 
     return specification;
   }
+
+  list(): Specification[] {
+    return this.specifications;
+  }
 }
 
 export { SpecificationsRepository };
