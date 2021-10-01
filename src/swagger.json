@@ -80,9 +80,15 @@
         "description": "Upload new categories",
         "requestBody": {
           "content": {
-            "aplication/octet-stream": {
+            "multipart/from-data": {
               "schema": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
               },
               "responses": {
                 "201": {
