@@ -103,7 +103,7 @@
           "content": {
             "aplication/json": {
               "schema": {
-                "$ref": "#/definitions/Specification",
+                "$ref": "#/definitions/Specifications",
                 "example": {
                   "name": "sedan",
                   "description": "Especificação para carros tipo sedan"
