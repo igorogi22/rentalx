@@ -1,3 +1,4 @@
+import { hash } from "bcrypt";
 import { inject, injectable } from "tsyringe";
 
 import { ICreateUserDto } from "../../dtos";
@@ -16,11 +17,12 @@ class CreateUserUseCase {
     driver_license,
     password,
   }: ICreateUserDto): Promise<void> {
+    const passwordHash = await hash(password, 8);
     await this.userRepository.create({
       name,
       email,
       driver_license,
-      password,
+      password: passwordHash,
     });
   }
 }
