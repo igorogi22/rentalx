@@ -1,5 +1,6 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
 
 import { IUsersRepository } from "../../repositories";
@@ -20,7 +21,7 @@ interface IResponse {
 @injectable()
 class AuthenticateUserUseCase {
   constructor(
-    @inject("UserRepository")
+    @inject("UsersRepository")
     private userRepository: IUsersRepository
   ) {}
 
