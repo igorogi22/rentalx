@@ -11,15 +11,15 @@ interface IRequest {
 @injectable()
 class UpdateUserAvatarUseCase {
   constructor(
-    @inject("UserRepository")
-    private userRpository: IUsersRepository
+    @inject("UsersRepository")
+    private usersRpository: IUsersRepository
   ) {}
   async execute({ user_id, avatar_file }: IRequest): Promise<void> {
-    const user = await this.userRpository.findById(user_id);
+    const user = await this.usersRpository.findById(user_id);
 
     user.avatar = avatar_file;
 
-    await this.userRpository.create(user);
+    await this.usersRpository.create(user);
   }
 }
 
